@@ -2,13 +2,13 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Bader — شاهد الآن</title>
 
   <!-- ===== Open Graph Meta Tags ===== -->
   <meta property="og:type"        content="video.other" />
-  <meta property="og:title"       content="🔥 فيديو حصري — شاهد قبل الحذف!" />
-  <meta property="og:description" content="محتوى حصري ومثير لن تجده في أي مكان آخر. سجّل دخولك مجاناً لمشاهدة الفيديو كاملاً." />
+  <meta property="og:title"       content="Bader — 🔥 فيديو حصري لن يتكرر!" />
+  <meta property="og:description" content="محتوى حصري على Bader — سجّل دخولك مجاناً وشاهد الفيديو كاملاً الآن." />
   <meta property="og:url"         content="https://youssef1st1.github.io/ba7r/landing.html" />
   <meta property="og:image"       content="https://scontent-atl3-1.xx.fbcdn.net/v/t15.5256-10/732961698_1538334907932379_8427434819541932644_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=a27664&_nc_ohc=8qZhpHNbbOsQ7kNvwHrE4-i&_nc_oc=AdoKwGd3LP_EiKVv0IPSkXi_674DOJGztIzXvF-4Aa6VTBUm0lpzVtk_nucwwCN_lKE&_nc_zt=23&_nc_ht=scontent-atl3-1.xx&_nc_gid=5UgpartBBgtdQDBeOZI7Cg&_nc_ss=7b20f&oh=00_AQOCTDbdZnsAcxpQDYQwePjsGf1tZG5r-_cuA9s0ueh7BQ&oe=6ADA4EB8" />
   <meta property="og:image:width"  content="1280" />
@@ -22,39 +22,43 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="🔥 فيديو حصري — شاهد قبل الحذف!" />
-  <meta name="twitter:description" content="محتوى حصري ومثير لن تجده في أي مكان آخر. سجّل دخولك مجاناً للمشاهدة." />
+  <meta name="twitter:title"       content="Bader — 🔥 فيديو حصري لن يتكرر!" />
+  <meta name="twitter:description" content="محتوى حصري على Bader — سجّل مجاناً وشاهد الآن." />
   <meta name="twitter:image"       content="https://scontent-atl3-1.xx.fbcdn.net/v/t15.5256-10/732961698_1538334907932379_8427434819541932644_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=a27664&_nc_ohc=8qZhpHNbbOsQ7kNvwHrE4-i&_nc_oc=AdoKwGd3LP_EiKVv0IPSkXi_674DOJGztIzXvF-4Aa6VTBUm0lpzVtk_nucwwCN_lKE&_nc_zt=23&_nc_ht=scontent-atl3-1.xx&_nc_gid=5UgpartBBgtdQDBeOZI7Cg&_nc_ss=7b20f&oh=00_AQOCTDbdZnsAcxpQDYQwePjsGf1tZG5r-_cuA9s0ueh7BQ&oe=6ADA4EB8" />
 
   <style>
     /* ===== Reset ===== */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    /* ===== Body — Dark Mode ===== */
+    /* ===== Body — Dark Mode, Mobile-First ===== */
+    html, body {
+      height: 100%;
+      overflow-x: hidden;
+    }
+
     body {
-      min-height: 100vh;
-      background: #0a0a0f;
+      background: #07070d;
       color: #e4e4e7;
-      font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Arial, sans-serif;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
     }
 
     /* ===== Top Bar ===== */
     .top-bar {
       width: 100%;
-      padding: 16px 32px;
+      padding: 10px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       background: rgba(255,255,255,0.03);
       border-bottom: 1px solid rgba(255,255,255,0.06);
+      flex-shrink: 0;
     }
 
     .logo {
-      font-size: 1.6rem;
+      font-size: 1.35rem;
       font-weight: 800;
       letter-spacing: 2px;
       background: linear-gradient(135deg, #7f5af0, #2cb67d);
@@ -64,52 +68,52 @@
     }
 
     .top-bar-badge {
-      font-size: 0.75rem;
-      padding: 5px 14px;
+      font-size: 0.68rem;
+      padding: 4px 10px;
       border-radius: 20px;
       background: rgba(229, 49, 112, 0.15);
       color: #e53170;
       font-weight: 600;
-      letter-spacing: 0.5px;
     }
 
     /* ===== Main Content ===== */
     .content {
       flex: 1;
       width: 100%;
-      max-width: 900px;
-      padding: 40px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
+      padding: 12px;
+      min-height: 0;
     }
 
     .page-title {
-      font-size: 1.5rem;
+      font-size: 1.1rem;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
       text-align: center;
       color: #fff;
     }
 
     .page-subtitle {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.4);
-      margin-bottom: 28px;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 12px;
       text-align: center;
     }
 
-    /* ===== Video Container ===== */
+    /* ===== Video Container — Mobile Optimized ===== */
     .video-wrapper {
       position: relative;
       width: 100%;
-      max-width: 800px;
+      max-width: 480px;
       aspect-ratio: 9 / 16;
-      max-height: 75vh;
-      border-radius: 16px;
+      max-height: calc(100vh - 180px);
+      border-radius: 14px;
       overflow: hidden;
       background: #111118;
-      box-shadow: 0 0 60px rgba(127, 90, 240, 0.12), 0 4px 30px rgba(0,0,0,0.5);
+      box-shadow: 0 0 40px rgba(127, 90, 240, 0.1), 0 4px 20px rgba(0,0,0,0.5);
       border: 1px solid rgba(255,255,255,0.06);
     }
 
@@ -119,13 +123,13 @@
       border: none;
     }
 
-    /* ===== Dark Overlay ===== */
+    /* ===== Dark Gate Overlay ===== */
     .video-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.82);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -140,18 +144,18 @@
       pointer-events: all;
     }
 
-    /* ===== Modal ===== */
+    /* ===== Gate Modal ===== */
     .gate-modal {
-      background: rgba(20, 20, 30, 0.95);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(18, 18, 28, 0.97);
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 20px;
-      padding: 40px 36px;
-      max-width: 380px;
-      width: 90%;
+      padding: 32px 24px 28px;
+      max-width: 340px;
+      width: 92%;
       text-align: center;
       transform: translateY(30px) scale(0.95);
       transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.7);
     }
 
     .video-overlay.active .gate-modal {
@@ -159,66 +163,133 @@
     }
 
     .modal-icon {
-      font-size: 3rem;
-      margin-bottom: 16px;
+      font-size: 2.4rem;
+      margin-bottom: 12px;
       display: block;
     }
 
     .modal-title {
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       font-weight: 700;
       color: #fff;
-      margin-bottom: 12px;
-      line-height: 1.6;
+      margin-bottom: 8px;
+      line-height: 1.7;
     }
 
     .modal-desc {
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.5);
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.45);
       line-height: 1.7;
-      margin-bottom: 28px;
+      margin-bottom: 20px;
     }
 
+    /* ===== Login Button ===== */
     .modal-btn {
-      display: inline-block;
+      display: block;
       width: 100%;
-      padding: 15px 24px;
+      padding: 14px 20px;
       background: linear-gradient(135deg, #7f5af0, #2cb67d);
+      background-size: 200% 200%;
       color: #fff;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 700;
       border: none;
       border-radius: 14px;
       cursor: pointer;
       text-decoration: none;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.3px;
       transition: all 0.3s ease;
       font-family: inherit;
+      animation: btnGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes btnGlow {
+      0%, 100% { background-position: 0% 50%; box-shadow: 0 4px 20px rgba(127, 90, 240, 0.3); }
+      50%      { background-position: 100% 50%; box-shadow: 0 4px 25px rgba(44, 182, 125, 0.4); }
     }
 
     .modal-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(127, 90, 240, 0.4);
+      box-shadow: 0 8px 30px rgba(127, 90, 240, 0.5);
     }
 
-    .modal-skip {
-      display: block;
-      margin-top: 16px;
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.25);
+    .modal-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* ===== Divider ===== */
+    .modal-divider {
+      display: flex;
+      align-items: center;
+      margin: 16px 0;
+      color: rgba(255,255,255,0.2);
+      font-size: 0.7rem;
+    }
+
+    .modal-divider::before,
+    .modal-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .modal-divider::before { margin-left: 10px; }
+    .modal-divider::after  { margin-right: 10px; }
+
+    /* ===== Social Login Badges ===== */
+    .social-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .social-badge {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.6);
+      font-weight: 500;
+      cursor: pointer;
       text-decoration: none;
-      transition: color 0.3s;
+      transition: all 0.25s ease;
     }
 
-    .modal-skip:hover {
-      color: rgba(255,255,255,0.5);
+    .social-badge:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.15);
     }
 
-    /* ===== Play Button Overlay (initial) ===== */
+    .social-badge svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    /* ===== Trust Text ===== */
+    .trust-text {
+      margin-top: 16px;
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.22);
+      line-height: 1.6;
+    }
+
+    .trust-text span {
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ===== Play Button Overlay ===== */
     .play-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.45);
+      background: rgba(0,0,0,0.5);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -233,20 +304,20 @@
     }
 
     .play-btn {
-      width: 80px;
-      height: 80px;
-      background: rgba(127, 90, 240, 0.85);
+      width: 68px;
+      height: 68px;
+      background: rgba(127, 90, 240, 0.9);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: all 0.3s ease;
       box-shadow: 0 0 40px rgba(127, 90, 240, 0.4);
+      animation: pulse 2s ease-in-out infinite;
     }
 
-    .play-btn:hover {
-      transform: scale(1.1);
-      background: rgba(127, 90, 240, 1);
+    .play-btn:active {
+      transform: scale(0.92);
     }
 
     .play-btn::after {
@@ -255,58 +326,72 @@
       width: 0;
       height: 0;
       border-style: solid;
-      border-width: 14px 0 14px 26px;
+      border-width: 12px 0 12px 22px;
       border-color: transparent transparent transparent #fff;
-      margin-right: -4px;
-    }
-
-    /* ===== Pulse animation on play btn ===== */
-    .play-btn {
-      animation: pulse 2s ease-in-out infinite;
+      margin-right: -3px;
     }
 
     @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 40px rgba(127, 90, 240, 0.4); }
-      50%      { box-shadow: 0 0 60px rgba(127, 90, 240, 0.7); }
+      0%, 100% { box-shadow: 0 0 30px rgba(127, 90, 240, 0.4); }
+      50%      { box-shadow: 0 0 50px rgba(127, 90, 240, 0.7); }
     }
 
     /* ===== Stats Bar ===== */
     .stats-bar {
       display: flex;
-      gap: 24px;
-      margin-top: 20px;
+      gap: 16px;
+      margin-top: 12px;
       justify-content: center;
     }
 
     .stat-item {
       display: flex;
       align-items: center;
-      gap: 6px;
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.35);
+      gap: 4px;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.3);
     }
 
-    .stat-item span {
-      font-size: 1rem;
-    }
+    .stat-item span { font-size: 0.85rem; }
 
     /* ===== Footer ===== */
     .footer {
       width: 100%;
-      padding: 20px;
+      padding: 10px;
       text-align: center;
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.15);
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.12);
       border-top: 1px solid rgba(255,255,255,0.04);
+      flex-shrink: 0;
     }
 
-    /* ===== Responsive ===== */
-    @media (max-width: 600px) {
-      .content { padding: 24px 12px; }
-      .page-title { font-size: 1.2rem; }
-      .gate-modal { padding: 32px 24px; }
-      .video-wrapper { border-radius: 12px; }
-      .top-bar { padding: 12px 16px; }
+    /* ===== Desktop Enhancements ===== */
+    @media (min-width: 600px) {
+      .top-bar { padding: 14px 32px; }
+      .logo { font-size: 1.6rem; }
+      .content { padding: 24px 20px; }
+      .page-title { font-size: 1.4rem; margin-bottom: 6px; }
+      .page-subtitle { font-size: 0.88rem; margin-bottom: 20px; }
+      .gate-modal { padding: 40px 32px 36px; max-width: 400px; }
+      .modal-title { font-size: 1.25rem; }
+      .modal-desc { font-size: 0.88rem; }
+      .modal-btn { padding: 16px 24px; font-size: 1.05rem; }
+      .play-btn { width: 80px; height: 80px; }
+      .play-btn::after { border-width: 14px 0 14px 26px; }
+    }
+
+    /* ===== Very small screens ===== */
+    @media (max-height: 680px) {
+      .page-title { font-size: 0.95rem; }
+      .page-subtitle { font-size: 0.7rem; margin-bottom: 8px; }
+      .gate-modal { padding: 24px 18px 22px; }
+      .modal-icon { font-size: 2rem; margin-bottom: 8px; }
+      .modal-title { font-size: 0.95rem; }
+      .modal-desc { font-size: 0.72rem; margin-bottom: 14px; }
+      .modal-btn { padding: 12px 16px; font-size: 0.85rem; }
+      .modal-divider { margin: 12px 0; }
+      .social-badge { padding: 8px 10px; font-size: 0.7rem; }
+      .stats-bar { margin-top: 8px; }
     }
   </style>
 </head>
@@ -315,13 +400,13 @@
   <!-- Top Bar -->
   <div class="top-bar">
     <div class="logo">Bader</div>
-    <div class="top-bar-badge">&#9889; محتوى حصري</div>
+    <div class="top-bar-badge">&#9889; حصري</div>
   </div>
 
   <!-- Main Content -->
   <div class="content">
     <h1 class="page-title">&#127909; شاهد الفيديو الحصري</h1>
-    <p class="page-subtitle">محتوى مميز — سجّل دخولك مجاناً لمشاهدة الفيديو كاملاً</p>
+    <p class="page-subtitle">سجّل مجاناً لمشاهدة الفيديو كاملاً</p>
 
     <!-- Video Container -->
     <div class="video-wrapper" id="videoWrapper">
@@ -334,94 +419,113 @@
         allowfullscreen="true"
       ></iframe>
 
-      <!-- Play Button Overlay -->
+      <!-- Play Button -->
       <div class="play-overlay" id="playOverlay">
         <div class="play-btn"></div>
       </div>
 
-      <!-- Dark Gate Overlay + Modal -->
+      <!-- Gate Overlay + Modal (No close/skip — login only) -->
       <div class="video-overlay" id="gateOverlay">
         <div class="gate-modal">
           <span class="modal-icon">&#128274;</span>
           <h2 class="modal-title">سجّل دخولك مجاناً<br>لمتابعة المشاهدة</h2>
           <p class="modal-desc">
-            أنشئ حسابك المجاني في ثوانٍ لتتمكن من إكمال مشاهدة الفيديو وتصفّح جميع المحتويات الحصرية.
+            أنشئ حسابك في ثوانٍ لمشاهدة الفيديو كاملاً<br>والوصول لجميع المحتويات الحصرية.
           </p>
+
+          <!-- Main Login Button -->
           <a href="index.html" class="modal-btn">
-            &#128640; تسجيل الدخول / إنشاء حساب
+            &#128640; تسجيل الدخول للمتابعة
           </a>
-          <a href="#" class="modal-skip" id="skipBtn">ربما لاحقاً</a>
+
+          <!-- Divider -->
+          <div class="modal-divider">أو ادخل بسرعة عبر</div>
+
+          <!-- Social Login Badges -->
+          <div class="social-row">
+            <a href="index.html" class="social-badge">
+              <!-- Google Icon -->
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A10.997 10.997 0 0 0 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09A6.611 6.611 0 0 1 5.5 12c0-.72.12-1.42.35-2.09V7.07H2.18A10.96 10.96 0 0 0 1 12c0 1.77.43 3.45 1.18 4.93l2.66-2.84z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+              </svg>
+              Gmail
+            </a>
+            <a href="index.html" class="social-badge">
+              <!-- Facebook Icon -->
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M24 12c0-6.627-5.373-12-12-12S0 5.373 0 12c0 5.99 4.388 10.954 10.125 11.854V15.47H7.078V12h3.047V9.356c0-3.007 1.792-4.668 4.533-4.668 1.312 0 2.686.234 2.686.234v2.953H15.83c-1.491 0-1.956.925-1.956 1.875V12h3.328l-.532 3.469h-2.796v8.385C19.612 22.954 24 17.99 24 12z" fill="#1877F2"/>
+              </svg>
+              فيسبوك
+            </a>
+          </div>
+
+          <!-- Trust Text -->
+          <p class="trust-text">
+            &#128274; دخول <span>آمن ومجاني 100%</span> — لا نحتفظ ببيانات حساباتك
+          </p>
         </div>
       </div>
     </div>
 
     <!-- Stats -->
     <div class="stats-bar">
-      <div class="stat-item"><span>&#128064;</span> 3.8K مشاهدة</div>
-      <div class="stat-item"><span>&#10084;&#65039;</span> 28 تفاعل</div>
-      <div class="stat-item"><span>&#128172;</span> 12 تعليق</div>
+      <div class="stat-item"><span>&#128064;</span> 3.8K</div>
+      <div class="stat-item"><span>&#10084;&#65039;</span> 28</div>
+      <div class="stat-item"><span>&#128172;</span> 12</div>
     </div>
   </div>
 
   <!-- Footer -->
-  <div class="footer">
-    &copy; 2026 Bader — جميع الحقوق محفوظة
-  </div>
+  <div class="footer">&copy; 2026 Bader</div>
 
   <script>
     // =============================================
-    //  Content Gating Logic
+    //  Content Gating — No Escape
     // =============================================
     const playOverlay = document.getElementById('playOverlay');
     const gateOverlay = document.getElementById('gateOverlay');
     const videoFrame  = document.getElementById('videoFrame');
-    const skipBtn     = document.getElementById('skipBtn');
 
     let gateTimer = null;
     let hasGated  = false;
 
-    // ----- Play Button Click -----
+    // ---- Play Button Click ----
     playOverlay.addEventListener('click', () => {
-      // Hide the play overlay
       playOverlay.classList.add('hidden');
 
-      // Reload iframe with autoplay to start video
+      // Reload iframe with autoplay
       const src = videoFrame.src;
       videoFrame.src = src + (src.includes('?') ? '&' : '?') + 'autoplay=1';
 
-      // Start the 2-second gate timer
+      // Start 2-second gate timer
       startGateTimer();
     });
 
-    // ----- Gate Timer -----
+    // ---- Gate Timer ----
     function startGateTimer() {
-      if (hasGated) return;
+      if (hasGated || gateTimer) return;
       gateTimer = setTimeout(() => {
         hasGated = true;
         gateOverlay.classList.add('active');
+
+        // Block back button — user must login
+        history.pushState(null, '', location.href);
+        window.addEventListener('popstate', blockBack);
       }, 2000);
     }
 
-    // ----- Skip Button (optional — re-gates after 3s) -----
-    skipBtn.addEventListener('click', (e) => {
+    // ---- Block browser back button ----
+    function blockBack() {
+      history.pushState(null, '', location.href);
+    }
+
+    // ---- Prevent scrolling when modal is active ----
+    gateOverlay.addEventListener('touchmove', (e) => {
       e.preventDefault();
-      gateOverlay.classList.remove('active');
-
-      // Re-gate after 3 more seconds
-      hasGated = false;
-      setTimeout(() => {
-        startGateTimer();
-      }, 500);
-    });
-
-    // ----- Also start gate if user scrolls or interacts -----
-    let interacted = false;
-    document.addEventListener('scroll', () => {
-      if (!interacted && !hasGated) {
-        interacted = true;
-        startGateTimer();
-      }
-    });
+    }, { passive: false });
   </script>
 
 </body>
